@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 searchResults.classList.remove('d-none');
                 searchResults.innerHTML = matches.map(prod => `
                     <a href="product-detail.html?id=${prod.id}" class="search-result-item">
-                        <img src="../${prod.main_image}" alt="${prod.name}" class="search-thumb">
+                        <img src="${prod.main_image}" alt="${prod.name}" class="search-thumb">
                         <div class="search-info">
                             <h6>${prod.name}</h6>
                             <span>LKR ${prod.price ? prod.price.toLocaleString() : prod.original_price.toLocaleString()}</span>
@@ -196,14 +196,14 @@ function loadProductDetails() {
             document.getElementById('product-description').textContent = product.description;
             
             const mainImg = document.getElementById('mainImage');
-            if (mainImg) mainImg.src = "../" + product.main_image;
+            if (mainImg) mainImg.src = product.main_image;
 
             const thumbContainer = document.getElementById('thumbnail-container');
             if (thumbContainer && product.thumbnails) {
                 thumbContainer.innerHTML = '';
                 product.thumbnails.forEach((thumbPath, index) => {
                     const img = document.createElement('img');
-                    img.src = "../" + thumbPath;
+                    img.src = thumbPath;
                     img.className = `thumb-img ${index === 0 ? 'active' : ''}`; 
                     img.alt = product.name;
                     img.onclick = function() { swapImage(this); };
@@ -245,7 +245,7 @@ function loadRelatedProducts(allProducts, currentId) {
         
         card.innerHTML = `
             <div class="img-wrapper">
-                <img src="../${prod.main_image}" alt="${prod.name}" style="width:100%; display:block;">
+                <img src="${prod.main_image}" alt="${prod.name}" style="width:100%; display:block;">
             </div>
             <h5 class="mt-3 fw-bold" style="font-size: 1rem; color: #1C4E55;">${prod.name}</h5>
             <p class="small" style="color: #C09858;">LKR ${cardPrice.toLocaleString('en-US', {minimumFractionDigits: 2})}</p>

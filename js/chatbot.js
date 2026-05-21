@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // inputing to html
     const chatHTML = `
         <button class="chat-toggler" onclick="toggleChat()">
-            <img src="../assets/icons/logo2.png" alt="Chat Logo"> 
+            <img src="assets/icons/logo2.png" alt="Chat Logo"> 
         </button>
 
         <div class="chat-window" id="chatWindow">

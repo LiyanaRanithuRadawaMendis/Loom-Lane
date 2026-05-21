@@ -401,8 +401,8 @@ function renderCart() {
                     <input type="number" min="1" value="${item.qty}" class="cart-qty-input" onchange="updateCartQty(${item.id}, this.value)">
                 </div>
                 <button class="btn-trash" onclick="removeCartItem(${item.id})">
-                    <img src="../assets/icons/cart/delete.svg" alt="Remove" class="trash-light">
-                    <img src="../assets/icons/cart/gold_delete.svg" alt="Remove" class="trash-dark">
+                    <img src="assets/icons/cart/delete.svg" alt="Remove" class="trash-light">
+                    <img src="assets/icons/cart/gold_delete.svg" alt="Remove" class="trash-dark">
                 </button>
             </div>
         `;

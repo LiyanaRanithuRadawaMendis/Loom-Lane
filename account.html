@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loom & Lane | Account</title>
+    <link rel="icon" type="image/x-icon" href=" assets/icons/logo2.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* some account page stylings */
+        .auth-container {
+            max-width: 450px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 40px;
+            border: 1px solid #eaddcf;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .auth-toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eaddcf;
+            padding-bottom: 10px;
+        }
+
+        .auth-tab {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ccc;
+            cursor: pointer;
+            margin: 0 20px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .auth-tab.active {
+            color: #1C4E55;
+        }
+
+        .auth-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -11px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #C09858;
+        }
+
+        .form-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1C4E55;
+            letter-spacing: 0.5px;
+        }
+
+        .form-control {
+            background-color: #F9F7F2;
+            border: 1px solid #eaddcf;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .form-control:focus {
+            background-color: #fff;
+            border-color: #1C4E55;
+            box-shadow: 0 0 0 3px rgba(28, 78, 85, 0.1);
+        }
+
+        .btn-auth {
+            background-color: #1C4E55;
+            color: #fff;
+            padding: 12px;
+            font-weight: 600;
+            border-radius: 50px;
+            width: 100%;
+            transition: all 0.3s;
+            border: 2px solid #1C4E55;
+        }
+
+        .btn-auth:hover {
+            background-color: #C09858;
+            border-color: #C09858;
+            color: #fff;
+        }
+
+        .error-msg {
+            color: #dc3545;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            display: none; 
+        }
+
+        .form-check-input:checked {
+            background-color: #1C4E55;
+            border-color: #1C4E55;
+        }
+
+        /* Dark Mode */
+        [data-theme="dark"] .auth-container {
+            background-color: #122123;
+            border-color: #2F3E46;
+        }
+        [data-theme="dark"] .form-label { color: #C09858; }
+        [data-theme="dark"] .form-control {
+            background-color: #2F3E46;
+            border-color: #1C4E55;
+            color: #F9F7F2;
+        }
+        [data-theme="dark"] .auth-tab.active { color: #F9F7F2; }
+        [data-theme="dark"] .text-muted { color: #aaa !important; }
+    </style>
+</head>
+
+<body data-theme="light">
+
+    <header class="site-header sticky-top">
+        <div class="container px-4 d-flex justify-content-between align-items-center">
+            <div class="logo-area"><a href="index.html" class="logo-text">Loom & Lane</a></div>
+            <nav class="nav-pill-container d-none d-xl-block">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="sales.html">Sales</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons d-flex gap-3 align-items-center">
+                <div class="search-wrapper position-relative">
+                    <input type="checkbox" id="search-toggle" class="d-none">
+                    <input type="text" id="search-input" class="search-input" placeholder="Search products...">
+                    <label for="search-toggle" class="icon-circle search-label">
+                        <img src=" assets/icons/header-icons/search.svg" alt="Search">
+                    </label>
+                    
+                    <div id="search-results" class="search-dropdown-box d-none"></div>
+                </div>
+                <button class="icon-circle theme-toggle border-0" id="theme-btn">
+                    <img src=" assets/icons/header-icons/light_mode.svg" alt="Light" class="mode-icon sun-icon">
+                    <img src=" assets/icons/header-icons/dark_mode.svg" alt="Dark" class="mode-icon moon-icon d-none">
+                </button>
+                <a href="watchlist.html" class="icon-circle d-none d-sm-flex"><img src=" assets/icons/header-icons/favorite.svg" alt="Wishlist"></a>
+                <a href="cart.html" class="icon-circle position-relative">
+                    <img src=" assets/icons/header-icons/shopping_cart.svg" alt="Cart">
+                    <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.7rem; display: none;">
+                        0
+                    </span>
+                </a>
+                <a href="account.html" class="icon-circle d-none d-sm-flex" style="background-color: #C09858;"><img src=" assets/icons/header-icons/account.svg" alt="Account"></a> <button class="icon-circle mobile-toggle d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+                    <img src=" assets/icons/header-icons/menu.svg" alt="Menu" style="width: 20px;">
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="offcanvas offcanvas-end mobile-menu-drawer" tabindex="-1" id="mobileMenu">
+        <div class="offcanvas-header">
+            <h5 class="logo-text">Loom & Lane</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="mobile-nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="sales.html">Sales</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+        <div class="auth-container">
+            
+            <div class="auth-toggle">
+                <span class="auth-tab active" id="tab-login" onclick="showLogin()">Login</span>
+                <span class="auth-tab" id="tab-signup" onclick="showSignup()">Sign Up</span>
+            </div>
+
+            <form id="login-form">
+                <div class="mb-3">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="login-email" placeholder="name@example.com">
+                    <div class="error-msg" id="err-login-email">Please enter a valid email address.</div>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" id="login-pass" placeholder="••••••••">
+                    <div class="error-msg" id="err-login-pass">Please enter your password.</div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="rememberMe">
+                        <label class="form-check-label small text-muted" for="rememberMe">Remember me</label>
+                    </div>
+                    <a href="#" class="small text-decoration-none" style="color: #C09858;">Forgot Password?</a>
+                </div>
+                <button type="button" class="btn-auth" onclick="validateLogin()">LOG IN</button>
+            </form>
+
+            <form id="signup-form" style="display: none;">
+                <div class="row g-2 mb-3">
+                    <div class="col-6">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="reg-fname">
+                        <div class="error-msg" id="err-reg-fname">Required.</div>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="reg-lname">
+                        <div class="error-msg" id="err-reg-lname">Required.</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="reg-email" placeholder="name@example.com">
+                    <div class="error-msg" id="err-reg-email">Invalid email format.</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" id="reg-pass" placeholder="Min 8 chars">
+                    <div class="error-msg" id="err-reg-pass">Password too short.</div>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="reg-confirm">
+                    <div class="error-msg" id="err-reg-confirm">Passwords do not match.</div>
+                </div>
+                <div class="form-check mb-4">
+                    <input type="checkbox" class="form-check-input" id="termsCheck">
+                    <label class="form-check-label small text-muted" for="termsCheck">I agree to the Terms & Conditions</label>
+                    <div class="error-msg" id="err-terms">You must agree to terms.</div>
+                </div>
+                <button type="button" class="btn-auth" onclick="validateSignup()">CREATE ACCOUNT</button>
+            </form>
+
+        </div>
+    </div>
+
+    <footer class="container-fluid p-0 mt-5">
+        <div class="footer-box">
+            <table class="footer-table">
+                <thead><tr><th width="25%">About Us</th><th width="25%">Stores And Services</th><th width="25%">Customer Services</th><th width="25%">Socials</th></tr></thead>
+                <tbody>
+                    <tr><td><a href="#">Who We Are</a></td><td><a href="#">Find a Store</a></td><td><a href="#">Contact Us</a></td><td><a href="#">Instagram</a></td></tr>
+                    <tr><td><a href="#">Our Story</a></td><td><a href="#">Design Services</a></td><td><a href="#">Shipping & Returns</a></td><td><a href="#">Facebook</a></td></tr>
+                    <tr><td><a href="#">Sustainability</a></td><td><a href="#">Gift Cards</a></td><td><a href="#">FAQ</a></td><td><a href="#">Twitter</a></td></tr>
+                    <tr><td><a href="#">Careers</a></td><td><a href="#">Catalogs</a></td><td><a href="#">Privacy Policy</a></td><td><a href="#">Pinterest</a></td></tr>
+                </tbody>
+            </table>
+            <hr style="border-color: #ffffff; margin-top: 40px; margin-bottom: 20px;">
+            <p class="text-center small text-muted mb-0">&copy; 2025 Loom & Lane. RM All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="data/products.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/app.js"></script>
+
+    <script>
+        // --- tab switch login-singup ---
+        const loginForm = document.getElementById('login-form');
+        const signupForm = document.getElementById('signup-form');
+        const tabLogin = document.getElementById('tab-login');
+        const tabSignup = document.getElementById('tab-signup');
+
+        function showLogin() {
+            loginForm.style.display = 'block';
+            signupForm.style.display = 'none';
+            tabLogin.classList.add('active');
+            tabSignup.classList.remove('active');
+            clearErrors();
+        }
+
+        function showSignup() {
+            loginForm.style.display = 'none';
+            signupForm.style.display = 'block';
+            tabLogin.classList.remove('active');
+            tabSignup.classList.add('active');
+            clearErrors();
+        }
+
+        function clearErrors() {
+            document.querySelectorAll('.error-msg').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.form-control').forEach(el => el.style.borderColor = '#eaddcf');
+        }
+
+        // --- vallidation ---
+        function showError(id, message) {
+            const el = document.getElementById(id);
+            if(el) {
+                el.innerText = message;
+                el.style.display = 'block';
+                
+                const inputId = id.replace('err-', '');
+                const inputEl = document.getElementById(inputId);
+                if(inputEl) inputEl.style.borderColor = '#dc3545';
+            }
+        }
+
+        function validateEmail(email) {
+            return String(email)
+                .toLowerCase()
+                .match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+        }
+
+        // ---login validation ---
+        function validateLogin() {
+            clearErrors();
+            let isValid = true;
+            
+            const email = document.getElementById('login-email').value;
+            const pass = document.getElementById('login-pass').value;
+
+            if(!email) { showError('err-login-email', "Email is required."); isValid = false; }
+            else if(!validateEmail(email)) { showError('err-login-email', "Invalid email format."); isValid = false; }
+
+            if(!pass) { showError('err-login-pass', "Password is required."); isValid = false; }
+
+            if(isValid) {
+                alert("Login Successful! (Redirecting...)");
+                window.location.href = 'index.html';
+            }
+        }
+
+        // --- singup validation ---
+        function validateSignup() {
+            clearErrors();
+            let isValid = true;
+
+            const fname = document.getElementById('reg-fname').value;
+            const lname = document.getElementById('reg-lname').value;
+            const email = document.getElementById('reg-email').value;
+            const pass = document.getElementById('reg-pass').value;
+            const confirm = document.getElementById('reg-confirm').value;
+            const terms = document.getElementById('termsCheck').checked;
+
+            if(!fname) { showError('err-reg-fname', "First name required."); isValid = false; }
+            if(!lname) { showError('err-reg-lname', "Last name required."); isValid = false; }
+            
+            if(!email) { showError('err-reg-email', "Email required."); isValid = false; }
+            else if(!validateEmail(email)) { showError('err-reg-email', "Invalid email address."); isValid = false; }
+
+            if(!pass) { showError('err-reg-pass', "Password required."); isValid = false; }
+            else if(pass.length < 8) { showError('err-reg-pass', "Password must be at least 8 chars."); isValid = false; }
+
+            if(pass !== confirm) { showError('err-reg-confirm', "Passwords do not match."); isValid = false; }
+
+            if(!terms) { showError('err-terms', "You must accept the terms."); isValid = false; }
+
+            if(isValid) {
+                alert("Account Created! Please log in.");
+                showLogin();
+            }
+        }
+    </script>
+
+</body>
+</html>

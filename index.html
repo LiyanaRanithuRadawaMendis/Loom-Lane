@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loom & Lane | Fashion To Your Home</title>
+    <link rel="icon" type="image/x-icon" href=" assets/icons/logo2.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body data-theme="light">
+
+    <header class="site-header sticky-top">
+        <div class="container px-4 d-flex justify-content-between align-items-center">
+            <div class="logo-area"><a href="index.html" class="logo-text">Loom & Lane</a></div>
+            <nav class="nav-pill-container d-none d-xl-block">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="sales.html">Sales</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons d-flex gap-3 align-items-center">
+                <div class="search-wrapper position-relative">
+                <input type="checkbox" id="search-toggle" class="d-none">
+                <input type="text" id="search-input" class="search-input" placeholder="Search products...">
+                <label for="search-toggle" class="icon-circle search-label">
+                    <img src="assets/icons/header-icons/search.svg" alt="Search">
+                </label>
+                
+                <div id="search-results" class="search-dropdown-box d-none"></div>
+            </div>
+                <button class="icon-circle theme-toggle border-0" id="theme-btn">
+                    <img src="assets/icons/header-icons/light_mode.svg" alt="Light" class="mode-icon sun-icon">
+                    <img src="assets/icons/header-icons/dark_mode.svg" alt="Dark" class="mode-icon moon-icon d-none">
+                </button>
+                <a href="watchlist.html" class="icon-circle d-none d-sm-flex"><img src=" assets/icons/header-icons/favorite.svg" alt="Wishlist"></a>
+                <a href="cart.html" class="icon-circle position-relative">
+                    <img src="assets/icons/header-icons/shopping_cart.svg" alt="Cart">
+                    <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.7rem; display: none;">
+                        0
+                    </span>
+                </a>
+                <a href="account.html" class="icon-circle d-none d-sm-flex"><img src="assets/icons/header-icons/account.svg" alt="Account"></a>
+                <button class="icon-circle mobile-toggle d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+                    <img src="assets/icons/header-icons/menu.svg" alt="Menu" style="width: 20px; height: 20px;">
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="offcanvas offcanvas-end mobile-menu-drawer" tabindex="-1" id="mobileMenu">
+        <div class="offcanvas-header">
+            <h5 class="logo-text">Loom & Lane</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="mobile-nav-list">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="sales.html">Sales</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="hero-section">
+        <div class="container-fluid px-4">
+            <div id="heroSlider" class="carousel slide hero-card" data-bs-ride="carousel" data-bs-touch="true" data-bs-interval="4000">
+                
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="3"></button>
+                </div>
+
+                <div class="carousel-inner h-100">
+                    <div class="carousel-item active h-100 slide-gray" style="background-image: url(' assets/images/hero/Fashion To Your Home.jpeg');">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <h2 class="hero-title">Fashion To <br>Your Home</h2>
+                            <a href="products.html" class="btn-corner">Shop Now</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item h-100 slide-blue" style="background-image: url(' assets/images/hero/saleh.jpeg');">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <h2 class="hero-title">Save up to 25%</h2>
+                            <a href="sales.html" class="btn-corner">SALE</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item h-100 slide-green" style="background-image: url(' assets/images/hero/Natural Living.jpeg');">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <h2 class="hero-title">Natural Living</h2>
+                            <a href="products.html" class="btn-corner">Buy Now</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item h-100 slide-beige" style="background-image: url(' assets/images/hero/Cozy Comfort.jpeg');">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <h2 class="hero-title">Cozy Comfort</h2>
+                            <a href="products.html" class="btn-corner">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid shop-container px-4 mt-5 mb-5">
+        <h3 class="section-title mb-4">Shop by Category</h3>
+        <div class="row g-4">
+            <div class="col-6 col-lg-3">
+                <a href="products.html?category=home" class="category-card">
+                    <img src="assets/images/Categories/Home and Decor.jpeg" alt="Home Decor" class="cat-bg-img">
+                    <div class="category-content">
+                        <img src="assets/icons/category/home_decor.svg" alt="Icon" class="cat-icon">
+                        <p>Home & Decor</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-lg-3">
+                <a href="products.html?category=wood" class="category-card">
+                    <img src="assets/images/Categories/Wooden Crafts.jpeg" alt="Wooden Crafts" class="cat-bg-img">
+                    <div class="category-content">
+                        <img src="assets/icons/category/wooden_craft.svg" alt="Icon" class="cat-icon">
+                        <p>Wooden Crafts</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-lg-3">
+                <a href="products.html?category=dining" class="category-card">
+                    <img src="assets/images/Categories/Porcelain and Dining.jpeg" alt="Dining" class="cat-bg-img">
+                    <div class="category-content">
+                        <img src="assets/icons/category/porcelain_and_dining.svg" alt="Icon" class="cat-icon">
+                        <p>Porcelain & Dining</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-lg-3">
+                <a href="products.html?category=garden" class="category-card">
+                    <img src="assets/images/Categories/Floral and Garden.jpeg" alt="Garden" class="cat-bg-img">
+                    <div class="category-content">
+                        <img src="assets/icons/category/floral_and_garden.svg" alt="Icon" class="cat-icon">
+                        <p>Floral & Garden</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid px-4 mt-5 mb-5">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <h3 class="section-title text-uppercase">Items on Sale</h3>
+            <a href="sales.html" class="view-all-link">View All &rarr;</a>
+        </div>
+        <div class="slider-wrapper position-relative">
+            <a href="#start" class="arrow-btn left-arrow"><img src="assets/icons/product scroller/arrow_circle_left.svg" alt="left"></a>
+            <div class="scroll-container" id="sale-container"></div>
+            <a href="#end" class="arrow-btn right-arrow"><img src="assets/icons/product scroller/arrow_circle_right.svg" alt="right"></a>
+        </div>
+    </section>
+
+    <section class="container-fluid px-4 mt-5 mb-5">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <h3 class="section-title text-uppercase">New Arrivals</h3>
+            <a href="products.html" class="view-all-link">View All &rarr;</a>
+        </div>
+        <div class="slider-wrapper position-relative">
+            <a href="#start" class="arrow-btn left-arrow"><img src="assets/icons/product scroller/arrow_circle_left.svg" alt="left"></a>
+            <div class="scroll-container" id="new-container"></div>
+            <a href="#end" class="arrow-btn right-arrow"><img src="assets/icons/product scroller/arrow_circle_right.svg" alt="right"></a>
+        </div>
+    </section>
+
+    <section class="container-fluid px-4 mt-5 mb-5">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <h3 class="section-title text-uppercase">Shop All</h3>
+            <a href="products.html" class="view-all-link">View All &rarr;</a>
+        </div>
+        <div class="slider-wrapper position-relative">
+            <a href="#start" class="arrow-btn left-arrow"><img src="assets/icons/product scroller/arrow_circle_left.svg" alt="left"></a>
+            <div class="scroll-container" id="all-container"></div>
+            <a href="#end" class="arrow-btn right-arrow"><img src="assets/icons/product scroller/arrow_circle_right.svg" alt="right"></a>
+        </div>
+    </section>
+
+    <section class="container-fluid px-4 mt-5 mb-5">
+        <div class="row align-items-center">
+            <div class="col-md-8 mb-4 mb-md-0">
+                <div class="hero-card review-box-custom position-relative d-flex align-items-stretch">
+                    <div id="reviewSlider" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="4000">
+                        <div class="carousel-inner h-100">
+                            
+                            <div class="carousel-item active h-100" style="background: transparent;">
+                                <div class="d-flex flex-column justify-content-center align-items-center h-100 text-center px-5">
+                                    <div class="d-flex gap-2 justify-content-center mb-3">
+                                        <img src="assets/images/customer_review/c1.jpeg" alt="Photo" class="cust-photo" onclick="openReviewImage(this)">
+                                        <img src="assets/images/customer_review/c2.jpeg" alt="Photo" class="cust-photo" onclick="openReviewImage(this)">
+                                        <img src="assets/images/customer_review/c3.jpeg" alt="Photo" class="cust-photo" onclick="openReviewImage(this)">
+                                    </div>
+                                    <div class="mb-3">
+                                        <img src="assets/icons/Customer review/star_rate.svg" alt="5 Stars" class="star-img">
+                                        <img src="assets/icons/Customer review/star_rate.svg" alt="5 Stars" class="star-img">
+                                        <img src="assets/icons/Customer review/star_rate.svg" alt="5 Stars" class="star-img">
+                                    </div>
+                                    <p class="review-text">"Absolutely love the quality of the furniture! The delivery was fast and the team was super helpful setting everything up. Will definitely buy again."</p>
+                                    <h5 class="review-author mt-3">— Sarah Jenkins</h5>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item h-100" style="background: transparent;">
+                                <div class="d-flex flex-column justify-content-center align-items-center h-100 text-center px-5">
+                                    <div class="d-flex gap-2 justify-content-center mb-3">
+                                        <img src="assets/images/customer_review/c4.jpeg" alt="Photo" class="cust-photo" onclick="openReviewImage(this)">
+                                        <img src="assets/images/customer_review/c5.jpeg" alt="Photo" class="cust-photo" onclick="openReviewImage(this)">
+                                    </div>
+                                    <div class="mb-3"><img src=" assets/icons/Customer review/star_rate.svg" alt="5 Stars" class="star-img"></div>
+                                    <p class="review-text">"The lamp looks exactly like the pictures. Great build quality and fits my living room perfectly."</p>
+                                    <h5 class="review-author mt-3">— Michael Brown</h5>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item h-100" style="background: transparent;">
+                                <div class="d-flex flex-column justify-content-center align-items-center h-100 text-center px-5">
+                                    <div class="d-flex gap-2 justify-content-center mb-3">
+                                        <img src=" assets/images/customer_review/c6.jpeg" alt="Customer Photo" class="cust-photo" onclick="openReviewImage(this)">
+                                        <img src=" assets/images/customer_review/c7.jpeg" alt="Customer Photo" class="cust-photo" onclick="openReviewImage(this)">
+                                    </div>
+                                    <div class="mb-3">
+                                        <img src=" assets/icons/Customer review/star_rate.svg" alt="5 Stars" class="star-img">
+                                        <img src=" assets/icons/Customer review/star_rate.svg" alt="5 Stars" class="star-img">
+                                        <img src=" assets/icons/Customer review/star_rate.svg" alt="5 Stars" class="star-img">
+                                    </div>
+                                    <p class="review-text">"Absolutely in love with this tapestry! The batik details of the elephants and dancers are incredibly intricate and add such a warm, cultural vibe to my living room."</p>
+                                    <h5 class="review-author mt-3">— Sarah Jenkins</h5>
+                                </div>
+                            </div>
+
+                        </div>
+                        <button class="carousel-control-prev review-arrow arrow-left" type="button" data-bs-target="#reviewSlider" data-bs-slide="prev"><img src=" assets/icons/Customer review/arrow_circle_left.png" alt="left"></button>
+                        <button class="carousel-control-next review-arrow arrow-right" type="button" data-bs-target="#reviewSlider" data-bs-slide="next"><img src=" assets/icons/Customer review/arrow_circle_right.png" alt="right"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 ps-md-5 text-center text-md-start">
+                <h2 class="section-title" style="color: #333; font-size: 2.5rem;">What Our<br>Customers Say</h2>
+                <p class="text-muted mt-2">See how our products look in real homes.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="container-fluid p-0 mt-5">
+        <div class="footer-box">
+            <table class="footer-table">
+                <thead><tr><th width="25%">About Us</th><th width="25%">Stores And Services</th><th width="25%">Customer Services</th><th width="25%">Socials</th></tr></thead>
+                <tbody>
+                    <tr><td><a href="about.html">Who We Are</a></td><td><a href="about.html">Find a Store</a></td><td><a href="about.html">Contact Us</a></td><td><a href="#">Instagram</a></td></tr>
+                    <tr><td><a href="about.html">Our Story</a></td><td><a href="about.html">Design Services</a></td><td><a href="#">Shipping & Returns</a></td><td><a href="#">Facebook</a></td></tr>
+                    <tr><td><a href="about.html">Sustainability</a></td><td><a href="products.html">Gift Cards</a></td><td><a href="#">FAQ</a></td><td><a href="#">Twitter</a></td></tr>
+                    <tr><td><a href="about.html">Careers</a></td><td><a href="about.html">Catalogs</a></td><td><a href="#">Privacy Policy</a></td><td><a href="#">Pinterest</a></td></tr>
+                </tbody>
+            </table>
+            <hr style="border-color: #ffffff; margin-top: 40px; margin-bottom: 20px;">
+            <p class="text-center small text-muted mb-0">&copy; 2025 Loom & Lane. RM All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="reviewImageModal" class="image-modal" onclick="closeReviewImage()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content no-anim" id="reviewFullImage">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="data/products.js"></script>
+    
+    <script src="js/app.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // New Arrivals
+            const newArrivalIds = [24, 18, 14, 7, 2, 22, 28, 4];
+
+            // Shop All
+            const shopAllIds = [26, 17, 23, 13, 4, 15, 8, 12];
+
+            // Items on Sale
+            const saleContainer = document.getElementById('sale-container');
+            
+            if(typeof productsData !== 'undefined') {
+                const saleProducts = productsData.filter(p => p.price && p.price < p.original_price);
+                renderProductList(saleContainer, saleProducts);
+
+                
+                const newContainer = document.getElementById('new-container');
+                const newProducts = getProductsByIds(newArrivalIds);
+                renderProductList(newContainer, newProducts);
+
+               
+                const allContainer = document.getElementById('all-container');
+                const allProducts = getProductsByIds(shopAllIds);
+                renderProductList(allContainer, allProducts);
+            }
+
+            // product details
+            function getProductsByIds(idList) {
+                
+                return idList.map(id => productsData.find(p => p.id === id)).filter(item => item !== undefined);
+            }
+
+            
+            function renderProductList(container, productList) {
+                container.innerHTML = ''; 
+                
+                productList.forEach(prod => {
+                    
+                    const isOnSale = prod.price && prod.price < prod.original_price;
+                    const displayPrice = isOnSale ? prod.price : prod.original_price;
+                    
+                    
+                    const badgeHtml = isOnSale 
+                        ? `<span class="badge-sale">${Math.round(((prod.original_price - prod.price)/prod.original_price)*100)}% OFF</span>` 
+                        : '';
+                    
+                    const priceHtml = isOnSale
+                        ? `<span class="price-old">LKR ${prod.original_price.toLocaleString()}</span>
+                           <span class="price-new">LKR ${prod.price.toLocaleString()}</span>`
+                        : `<p class="small">LKR ${prod.original_price.toLocaleString()}.00</p>`;
+
+                    
+                    const html = `
+                        <a href="product-detail.html?id=${prod.id}" class="scroll-card position-relative">
+                            ${badgeHtml}
+                            <div class="img-wrapper">
+                                <img src="../${prod.main_image}" alt="${prod.name}">
+                            </div>
+                            <h5 class="mt-3 fw-bold">${prod.name}</h5>
+                            <div class="d-flex gap-2 align-items-center justify-content-center">
+                                ${priceHtml}
+                            </div>
+                        </a>`;
+                    
+                    container.innerHTML += html;
+                });
+            }
+        });
+
+        
+        function openReviewImage(img) {
+            var modal = document.getElementById("reviewImageModal");
+            var modalImg = document.getElementById("reviewFullImage");
+            modal.style.display = "block";
+            modalImg.src = img.src;
+        }
+        function closeReviewImage() {
+            var modal = document.getElementById("reviewImageModal");
+            modal.style.display = "none";
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/chatbot.js"></script>
+
+</body>
+</html>

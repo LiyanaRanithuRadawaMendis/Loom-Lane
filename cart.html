@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loom & Lane | My Cart</title>
+    <link rel="icon" type="image/x-icon" href=" assets/icons/logo2.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body data-theme="light">
+
+    <div id="top-promo-bar" class="promo-bar">
+        <button class="btn-close-promo" onclick="closePromo()">×</button>
+        <div class="promo-track">
+            <div class="promo-content">
+                <span class="promo-text">USE CODE 67 FOR 10% DISCOUNT</span>
+                <span class="promo-text">USE CODE 67 FOR 10% DISCOUNT</span>
+                <span class="promo-text">USE CODE 67 FOR 10% DISCOUNT</span>
+                <span class="promo-text">USE CODE 67 FOR 10% DISCOUNT</span>
+            </div>
+            <div class="promo-content">
+                <span class="promo-text">USE CODE 67 FOR 10% DISCOUNT</span>
+                <span class="promo-text">USE CODE 67 FOR 10% DISCOUNT</span>
+                <span class="promo-text">USE CODE 67 FOR 10% DISCOUNT</span>
+                <span class="promo-text">USE CODE 67 FOR 10% DISCOUNT</span>
+            </div>
+        </div>
+    </div>
+
+    <header class="site-header sticky-top">
+        <div class="container px-4 d-flex justify-content-between align-items-center">
+            <div class="logo-area">
+                <a href="index.html" class="logo-text">Loom & Lane</a>
+            </div>
+            <nav class="nav-pill-container d-none d-xl-block">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="sales.html">Sales</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons d-flex gap-3 align-items-center">
+                <div class="search-wrapper position-relative">
+                    <input type="checkbox" id="search-toggle" class="d-none">
+                    <input type="text" id="search-input" class="search-input" placeholder="Search products...">
+                    <label for="search-toggle" class="icon-circle search-label">
+                        <img src=" assets/icons/header-icons/search.svg" alt="Search">
+                    </label>
+                    <div id="search-results" class="search-dropdown-box d-none"></div>
+                </div>
+                <button class="icon-circle theme-toggle border-0" id="theme-btn">
+                    <img src=" assets/icons/header-icons/light_mode.svg" alt="Light" class="mode-icon sun-icon">
+                    <img src=" assets/icons/header-icons/dark_mode.svg" alt="Dark" class="mode-icon moon-icon d-none">
+                </button>
+                <a href="watchlist.html" class="icon-circle d-none d-sm-flex"><img src=" assets/icons/header-icons/favorite.svg" alt="Wishlist"></a>
+                <a href="cart.html" class="icon-circle position-relative">
+                    <img src=" assets/icons/header-icons/shopping_cart.svg" alt="Cart">
+                    <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.7rem; display: none;">
+                        0
+                    </span>
+                </a>
+                <a href="account.html" class="icon-circle d-none d-sm-flex"><img src=" assets/icons/header-icons/account.svg" alt="Account"></a>
+                <button class="icon-circle mobile-toggle d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+                    <img src=" assets/icons/header-icons/menu.svg" alt="Menu" style="width: 20px; height: 20px;">
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="offcanvas offcanvas-end mobile-menu-drawer" tabindex="-1" id="mobileMenu">
+        <div class="offcanvas-header">
+            <h5 class="logo-text">Loom & Lane</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="mobile-nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="sales.html">Sales</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <section class="container px-4 mt-5 mb-5">
+        
+        <h2 class="section-title mb-4 d-flex align-items-center gap-2" id="cart-title">
+            My Cart 
+            <img src=" assets/icons/cart/green_cart.svg" alt="cart" class="cart-icon-light" style="width: 28px;">
+            <img src=" assets/icons/cart/gold_cart.svg" alt="cart" class="cart-icon-dark" style="width: 28px;">
+        </h2>
+
+        <div class="row g-5">
+            <div class="col-lg-8">
+                <div id="cart-items-container"></div>
+                
+                <div id="empty-cart-msg" class="text-center py-5 d-none">
+                    <h4 class="text-muted">Your cart is empty.</h4>
+                    <a href="products.html" class="btn btn-teal-solid mt-3 rounded-pill px-4" style="background-color: #1C4E55; color: white;">Start Shopping</a>
+                </div>
+
+                <hr class="my-4" style="opacity: 0.2;">
+                
+                <div class="mt-5">
+                    <h5 class="fw-bold mb-3 payment-title" style="color: #1C4E55;">Payment And Delivery</h5>
+                    <p class="text-muted" style="line-height: 1.6;">
+                        Experience the ultimate in relaxation with the CloudNine Modular Sectional. 
+                        Designed for modern living, this sofa combines deep-seated comfort with a sleek, low-profile silhouette. 
+                        Its modular design allows you to rearrange the pieces to fit any room layout, making it as versatile as it is stylish.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="order-summary-box p-4 rounded-4 position-sticky" style="top: 100px;">
+                    <label class="form-label small fw-bold text-muted">Enter Promo Code</label>
+                    <div class="input-group mb-2"> 
+                        <input type="text" id="promo-input" class="form-control rounded-start-pill border-end-0" placeholder="Promo Code">
+                        <button class="btn btn-teal-solid rounded-end-pill px-4" type="button" onclick="calculateCartWithPromo()" style="background-color: #1C4E55; color: white;">Submit</button>
+                    </div>
+                    <div id="promo-msg" class="small mb-4 fw-bold" style="display: none;"></div>
+
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">Subtotal</span>
+                        <span class="fw-bold" id="cart-subtotal">LKR 0.00</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">Shipping Cost</span>
+                        <span class="fw-bold">LKR 3,000.00</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="text-muted">Discount</span>
+                        <span class="fw-bold text-success" id="cart-discount">- LKR 0.00</span>
+                    </div>
+                    
+                    <hr class="my-3 opacity-25">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="mb-0 fw-bold total-label" style="color: #1C4E55;">Total</h5>
+                        <h4 class="mb-0 fw-bold" style="color: #C09858;" id="cart-total">LKR 0.00</h4>
+                    </div>
+
+                    <button class="btn btn-checkout w-100 py-3 rounded-pill fw-bold" onclick="window.location.href='checkout.html'">Check Out</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="container-fluid px-4 mt-5 mb-5">
+    
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <h3 class="section-title text-uppercase mb-0">You May Also Like</h3>
+            <a href="products.html" class="view-all-link">View All &rarr;</a>
+        </div>
+    
+        <div class="slider-wrapper position-relative">
+            <a href="#start" class="arrow-btn left-arrow">
+                <img src=" assets/icons/product scroller/arrow_circle_left.svg" alt="left" class="arrow-light">
+                <img src=" assets/icons/product scroller/gold_arrow_circle_left.svg" alt="left" class="arrow-dark">
+            </a>
+            
+            <div class="scroll-container" id="related-products-slider">
+                </div>
+
+            <a href="#end" class="arrow-btn right-arrow">
+                <img src=" assets/icons/product scroller/arrow_circle_right.svg" alt="right" class="arrow-light">
+                <img src=" assets/icons/product scroller/gold_arrow_circle_right.svg" alt="right" class="arrow-dark">
+            </a>
+        </div>
+    </section>
+
+
+    <footer class="container-fluid p-0 mt-5">
+        <div class="footer-box">
+            <table class="footer-table">
+                <thead>
+                    <tr>
+                        <th width="25%">About Us</th>
+                        <th width="25%">Stores And Services</th>
+                        <th width="25%">Customer Services</th>
+                        <th width="25%">Socials</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#">Who We Are</a></td>
+                        <td><a href="#">Find a Store</a></td>
+                        <td><a href="#">Contact Us</a></td>
+                        <td><a href="#">Instagram</a></td> 
+                    </tr>
+                    <tr>
+                        <td><a href="#">Our Story</a></td>
+                        <td><a href="#">Design Services</a></td>
+                        <td><a href="#">Shipping & Returns</a></td>
+                        <td><a href="#">Facebook</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">Sustainability</a></td>
+                        <td><a href="#">Gift Cards</a></td>
+                        <td><a href="#">FAQ</a></td>
+                        <td><a href="#">Twitter</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">Careers</a></td>
+                        <td><a href="#">Catalogs</a></td>
+                        <td><a href="#">Privacy Policy</a></td>
+                        <td><a href="#">Pinterest</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr style="border-color: #ffffff; margin-top: 40px; margin-bottom: 20px;">
+            <p class="text-center small text-muted mb-0">
+                &copy; 2025 Loom & Lane. RM All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="data/products.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/chatbot.js"></script>
+
+    <script>
+        // --- promo code bar ---
+        function closePromo() {
+            const bar = document.getElementById('top-promo-bar');
+            if(bar) bar.style.display = 'none';
+        }
+
+        // --- promo code logic ---
+        function calculateCartWithPromo() {
+            const promoInput = document.getElementById('promo-input');
+            const msgContainer = document.getElementById('promo-msg');
+            const promoCode = promoInput.value.trim();
+            let discountRate = 0;
+
+            msgContainer.style.display = 'none';
+            msgContainer.innerText = '';
+            msgContainer.className = 'small mb-4 ms-2 fw-bold'; 
+
+            if (promoCode === "") {
+                msgContainer.innerText = "Please enter a promo code.";
+                msgContainer.classList.add('text-danger');
+                msgContainer.style.display = 'block';
+                return;
+            } 
+            else if (promoCode === "67") {
+                discountRate = 0.10; 
+                alert("10% discount added!");
+            } 
+            else {
+                msgContainer.innerText = "Invalid Promo Code.";
+                msgContainer.classList.add('text-danger');
+                msgContainer.style.display = 'block';
+                promoInput.value = ""; 
+                return;
+            }
+
+            
+            const items = JSON.parse(localStorage.getItem('cartItems')) || [];
+            let subtotal = 0;
+
+            items.forEach(item => {
+                subtotal += item.price * item.qty;
+            });
+
+            const discountAmount = subtotal * discountRate;
+            const shipping = subtotal > 0 ? 3000 : 0;
+            const total = subtotal + shipping - discountAmount;
+
+            document.getElementById('cart-subtotal').innerText = 'LKR ' + subtotal.toLocaleString('en-US', {minimumFractionDigits: 2});
+            
+            const discountEl = document.getElementById('cart-discount');
+            if (discountRate > 0) {
+                discountEl.innerText = '- LKR ' + discountAmount.toLocaleString('en-US', {minimumFractionDigits: 2});
+                discountEl.style.color = '#198754'; 
+            } else {
+                discountEl.innerText = '- LKR 0.00';
+                discountEl.style.color = 'inherit';
+            }
+
+            document.getElementById('cart-total').innerText = 'LKR ' + total.toLocaleString('en-US', {minimumFractionDigits: 2});
+        }
+
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const sliderContainer = document.getElementById('related-products-slider');
+            
+            if(sliderContainer) {
+                
+                const checkData = setInterval(() => {
+                    if (typeof productsData !== 'undefined') {
+                        clearInterval(checkData);
+                        loadSuggestions(productsData);
+                    }
+                }, 100);
+
+                function loadSuggestions(products) {
+                    const suggestions = products.slice(0, 8);
+                    
+                    sliderContainer.innerHTML = '';
+                    suggestions.forEach(prod => {
+                        const card = document.createElement('a');
+                        card.href = `product-detail.html?id=${prod.id}`;
+                        card.className = 'scroll-card';
+                        card.style.minWidth = "250px"; 
+                        card.style.display = "block";
+                        
+                        const cardPrice = prod.price ? prod.price : prod.original_price;
+                        
+                        card.innerHTML = `
+                            <div class="img-wrapper">
+                                <img src="../${prod.main_image}" alt="${prod.name}" style="width:100%; display:block;">
+                            </div>
+                            <h5 class="mt-3 fw-bold" style="font-size: 1rem; color: #1C4E55;">${prod.name}</h5>
+                            <p class="small" style="color: #C09858;">LKR ${cardPrice.toLocaleString('en-US', {minimumFractionDigits: 2})}</p>
+                        `;
+                        sliderContainer.appendChild(card);
+                    });
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
